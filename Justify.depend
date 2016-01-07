@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1452163873 source:c:\users\otlet\desktop\studia\justify\src\justify.cpp
+	"Justify.h"
+
+1452163957 c:\users\otlet\desktop\studia\justify\include\justify.h
+
+1452165270 source:c:\users\otlet\desktop\studia\justify\main.cpp
+	"Justify.h"
+
+1452165438 c:\users\otlet\desktop\studia\justify\justify.h
+	<iostream>
+	<string>
+	<cstdlib>
+
