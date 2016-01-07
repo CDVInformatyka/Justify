@@ -4,11 +4,13 @@
 
 1452163957 c:\users\otlet\desktop\studia\justify\include\justify.h
 
-1452165270 source:c:\users\otlet\desktop\studia\justify\main.cpp
+1452167052 source:c:\users\otlet\desktop\studia\justify\main.cpp
 	"Justify.h"
 
-1452165438 c:\users\otlet\desktop\studia\justify\justify.h
+1452167685 c:\users\otlet\desktop\studia\justify\justify.h
 	<iostream>
 	<string>
 	<cstdlib>
+	<fstream>
+	<sys/stat.h>
 

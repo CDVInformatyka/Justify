@@ -10,7 +10,8 @@
 
 int main()
 {
+    setlocale(LC_ALL, "");
     string plainText="";
-    chooseMode();
+    cout<<chooseMode();
     return 0;
 }

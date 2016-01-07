@@ -1,21 +1,38 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream>
+#include <sys/stat.h>
 
 using namespace std;
 
+/* Przydatne funkcje */
 void cls(){
     system("CLS");
 }
 
-int walidacjaInt(){
-	int x;
-	while(!(cin>>x)){cin.clear();cin.sync();}
-	cls();return x;
+bool fileExists (string& fileName) {
+    ifstream file(fileName.c_str());
+    if (file.good()) {
+        file.close();
+        return true;
+    } else {
+        file.close();
+        return false;
+    }
 }
 
+/* Dodawanie tekstu! */
 string modeFile(){
-    return "kupa";
+    cout<<"Upewnij się, że plik znajduje się w tym samym folderze, co plik exe!"<<endl;
+    cout<<"Podaj nazwę pliku (z rozszerzeniem): ";
+    string filename;
+    cin>>filename;
+    ofstream file;
+    if(fileExists(filename)){
+        return "Pliku nie znaleziono!";
+    }
+    file.open(filename.c_str());
 }
 string modeNoFile(){
     return "kupa";
@@ -23,6 +40,7 @@ string modeNoFile(){
 
 string chooseMode(){
     bool correct=0;
+    string plainText="";
     do {
         cls();
         string text="";
@@ -31,7 +49,6 @@ string chooseMode(){
         if(text=="T" || text=="N" || text=="t" || text=="n"){
             cls();
             correct=1;
-            string plainText="";
             if(text=="T" || text=="t"){
                 plainText=modeFile();
             } else {
