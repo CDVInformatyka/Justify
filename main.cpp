@@ -1,17 +1,21 @@
 #include "Justify.h"
+#include <windows.h>
 
 /*
- * @author      Pawe≥ Otlewski
- * @class       Informatyka, 1 rok, zaocznie
- * @compilator  GCC
+ * @AUTHOR      Pawe≈Ç Otlewski
+ * @CDV         Informatyka, 1 rok, zaocznie
+ * @COMPILATOR  GNU GCC Compiler
  * @IDE         Code::Blocks 13.12
  * @LICENSE     MIT (X11)
+ * @VCS         GitHub
  */
 
 int main()
 {
     setlocale(LC_ALL, "");
-    string plainText="";
-    cout<<chooseMode();
+    SetConsoleTitleA("Justowanie tekstu");
+    string plainText="", text="";
+    text=chooseMode();
+    cout<<text;
     return 0;
 }

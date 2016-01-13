@@ -2,7 +2,6 @@
 #include <string>
 #include <cstdlib>
 #include <fstream>
-#include <sys/stat.h>
 
 using namespace std;
 
@@ -11,36 +10,47 @@ void cls(){
     system("CLS");
 }
 
-bool fileExists (string& fileName) {
-    ifstream file(fileName.c_str());
-    if (file.good()) {
-        file.close();
-        return true;
-    } else {
-        file.close();
-        return false;
-    }
+void pause(){
+    system("PAUSE");
+}
+
+string getText(string description){
+    string text;
+    cout<<description;
+    cin>>text;
+    return text;
 }
 
 /* Dodawanie tekstu! */
 string modeFile(){
+    cls();
     cout<<"Upewnij się, że plik znajduje się w tym samym folderze, co plik exe!"<<endl;
     cout<<"Podaj nazwę pliku (z rozszerzeniem): ";
-    string filename;
+    string filename,text="",text1;
     cin>>filename;
-    ofstream file;
-    if(fileExists(filename)){
-        return "Pliku nie znaleziono!";
-    }
+    ifstream file;
     file.open(filename.c_str());
+    if(file.good())
+    {
+        int i=0;
+        while(getline(file, text1)){
+            if(i!=0){text+=" ";}
+            text+=text1;
+            i=1;
+        }
+    } else {
+        return "Błąd z plikiem!";
+    }
+    return text;
 }
+
 string modeNoFile(){
-    return "kupa";
+    return getText("Podaj tekst do wyrównania: ");
 }
 
 string chooseMode(){
     bool correct=0;
-    string plainText="";
+    string plainText;
     do {
         cls();
         string text="";
