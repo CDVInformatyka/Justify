@@ -1,4 +1,4 @@
-#include "Justify.h"
+﻿#include "Justify.h"
 #include <windows.h>
 
 /*
@@ -16,6 +16,12 @@ int main()
     SetConsoleTitleA("Justowanie tekstu");
     string plainText="", text="";
     text=chooseMode();
-    cout<<text;
+    if(text=="Błąd z plikiem!"){
+        cout<<"Prawdopodobnie plik nie istnieje lub aplikacja nie ma do niego dostępu";
+        pause();
+        return 0;
+    }
+    cout<<text<<endl;
+    //justify(text);
     return 0;
 }

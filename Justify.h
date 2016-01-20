@@ -1,11 +1,14 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <cstdlib>
 #include <fstream>
 
 using namespace std;
 
-/* Przydatne funkcje */
+/**
+ * Podstawowe funkcje
+ */
+
 void cls(){
     system("CLS");
 }
@@ -21,22 +24,20 @@ string getText(string description){
     return text;
 }
 
-/* Dodawanie tekstu! */
+/**
+ * Obługa plików i tekstu
+ */
 string modeFile(){
-    cls();
     cout<<"Upewnij się, że plik znajduje się w tym samym folderze, co plik exe!"<<endl;
     cout<<"Podaj nazwę pliku (z rozszerzeniem): ";
     string filename,text="",text1;
     cin>>filename;
     ifstream file;
     file.open(filename.c_str());
-    if(file.good())
+    if(file.is_open())
     {
-        int i=0;
         while(getline(file, text1)){
-            if(i!=0){text+=" ";}
-            text+=text1;
-            i=1;
+            text+=text1+" ";
         }
     } else {
         return "Błąd z plikiem!";
@@ -52,12 +53,10 @@ string chooseMode(){
     bool correct=0;
     string plainText;
     do {
-        cls();
         string text="";
         cout<<"Pobierać dane z pliku? (T/N): ";
         cin>>text;
         if(text=="T" || text=="N" || text=="t" || text=="n"){
-            cls();
             correct=1;
             if(text=="T" || text=="t"){
                 plainText=modeFile();
@@ -68,3 +67,27 @@ string chooseMode(){
     } while (correct!=1);
     return plainText;
 }
+
+/**
+ * Justowanie
+ */
+
+//string przycinanieTekstu(){
+//    return 0;
+//};
+//
+//void justify(string text){
+//    const int szerokosc = 80;
+//    string wynik="";
+//    int dlugoscTekstu = text.length();
+//    int poczatek=0;
+//    int koniec;
+//    if ((poczatek+szerokosc) < dlugoscTekstu){
+//        koniec=poczatek+szerokosc;
+//    } else {
+//        koniec=dlugoscTekstu;
+//    }
+//    while (poczatek < koniec){
+//        string liniaWynik = przycinanieTekstu();
+//    }
+//}
