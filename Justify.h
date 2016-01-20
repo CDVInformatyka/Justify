@@ -43,20 +43,20 @@ string plainText(){
  */
 
 string przycinanieTekstu(string &text, int &poczatek, int &koniec ) {
-    string buffor;
+    string bufor;
     if(koniec==text.length()){
-        buffor.insert(0,text,poczatek,text.length()-poczatek+1);
+        bufor.insert(0,text,poczatek,text.length()-poczatek+1);
         poczatek=text.length();
-        return buffor;
+        return bufor;
     }
     while(koniec>poczatek){
         if(text[koniec--]!=' ')
              continue;
         break;
     }
-    buffor.insert(0,text,poczatek,koniec-poczatek+1);
+    bufor.insert(0,text,poczatek,koniec-poczatek+1);
     poczatek=koniec+2;
-    return buffor;
+    return bufor;
 }
 
 void wyrownanie(string &text , int szerokosc){
@@ -72,15 +72,15 @@ void wyrownanie(string &text , int szerokosc){
 }
 
 void justify(string text, int szerokosc){
-    string wynik="";
-    int dlugoscTekstu = text.length();
-    int poczatek=0;
-    int koniec;
+    string  wynik="";
+    fstream plikWynik;
+    int     dlugoscTekstu=text.length(), poczatek=0, koniec;
     if ((poczatek+szerokosc)<dlugoscTekstu){
         koniec=poczatek+szerokosc;
     } else {
         koniec=dlugoscTekstu;
     }
+    plikWynik.open("wynik.txt", ios::trunc | ios::out);
     while (poczatek < koniec){
         string liniaWynik = przycinanieTekstu(text,poczatek,koniec);
         wyrownanie(liniaWynik, szerokosc);
@@ -89,6 +89,8 @@ void justify(string text, int szerokosc){
         } else {
             koniec=dlugoscTekstu;
         }
-        cout << liniaWynik << endl;
+        cout<<liniaWynik<<endl;
+        plikWynik<<liniaWynik<<endl;
     }
+    plikWynik.close();
 }
