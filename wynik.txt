@@ -1,8 +1,0 @@
-Ten  skrypt  nie  wyœwietli  niczego,  poniewa¿  instrukcja echo odwo³uje siê do
-zmiennej  lokalnej  $a.  której  jak dot¹d nie zosta³a przypisana ¿adna wartoœæ.
-Mo¿na  tu  zauwa¿yæ  ró¿nicê  w  stosunku do jêzyka C. gdzie zmienne globalne s¹
-zawsze  dostêpne  wewn¹trz  definicji funkcji, o ile nie zosta³y nadpisane przez
-lokaln¹    definicjê   zmiennej.  Mo¿e  to  spowodowaæ  problem,  ¿e  ktoœ  mo¿e
-nieodwracalnie  zmieniæ wartoœæ zmiennej globalnej. W PHP zmienne globalne musz¹
-byæ jawnie okreœlone jako globalne wewn¹trz funkcji, w której maj¹ byæ u¿yte, do
-czego              u¿ywamy        s³owa        kluczowego        global.        
