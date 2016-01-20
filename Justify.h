@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <cstdlib>
 #include <fstream>
@@ -19,8 +19,9 @@ void pause(){
 
 string getText(string description){
     string text;
-    cout<<description;
-    cin>>text;
+    cout<<description<<endl;
+    getline(cin,text);
+    cout<<text<<endl;
     return text;
 }
 
@@ -28,6 +29,7 @@ string getText(string description){
  * Obługa plików i tekstu
  */
 string modeFile(){
+    cls();
     cout<<"Upewnij się, że plik znajduje się w tym samym folderze, co plik exe!"<<endl;
     cout<<"Podaj nazwę pliku (z rozszerzeniem): ";
     string filename,text="",text1;
@@ -40,13 +42,36 @@ string modeFile(){
             text+=text1+" ";
         }
     } else {
-        return "Błąd z plikiem!";
+        text="Błąd z plikiem!";
     }
     return text;
 }
 
 string modeNoFile(){
-    return getText("Podaj tekst do wyrównania: ");
+    string text;
+    getline(cin,text);
+    cout<<text<<endl;
+    return text;
+    //return getText("Podaj tekst do wyrównania: ");
+}
+
+string pobieranieTekstuOMG(){
+    bool correct=0;
+    string plainText;
+    do {
+        string text="";
+        cout<<"Pobierać dane z pliku? (T/N): ";
+        cin>>text;
+        if(text=="T" || text=="N" || text=="t" || text=="n"){
+            correct=1;
+            if(text=="T" || text=="t"){
+                plainText=modeFile();
+            } else {
+                getline(cin,plainText);
+            }
+        }
+    } while (correct!=1);
+    return plainText;
 }
 
 string chooseMode(){

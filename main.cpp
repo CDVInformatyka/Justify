@@ -1,4 +1,4 @@
-﻿#include "Justify.h"
+#include "Justify.h"
 #include <windows.h>
 
 /*
@@ -12,10 +12,11 @@
 
 int main()
 {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL,"");
     SetConsoleTitleA("Justowanie tekstu");
     string plainText="", text="";
-    text=chooseMode();
+    //text=chooseMode();
+    text=pobieranieTekstuOMG();
     if(text=="Błąd z plikiem!"){
         cout<<"Prawdopodobnie plik nie istnieje lub aplikacja nie ma do niego dostępu";
         pause();
