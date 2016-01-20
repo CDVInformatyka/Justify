@@ -16,6 +16,7 @@ int main()
     SetConsoleTitleA("Justowanie tekstu");
     string text="";
     text=plainText();
-    justify(text);
+    cls();
+    justify(text, 80);
     return 0;
 }
