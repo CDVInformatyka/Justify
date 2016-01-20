@@ -76,7 +76,7 @@ void justify(string text, int szerokosc){
     int dlugoscTekstu = text.length();
     int poczatek=0;
     int koniec;
-    if ((poczatek+szerokosc) < dlugoscTekstu){
+    if ((poczatek+szerokosc)<dlugoscTekstu){
         koniec=poczatek+szerokosc;
     } else {
         koniec=dlugoscTekstu;
@@ -84,7 +84,7 @@ void justify(string text, int szerokosc){
     while (poczatek < koniec){
         string liniaWynik = przycinanieTekstu(text,poczatek,koniec);
         wyrownanie(liniaWynik, szerokosc);
-        if ((poczatek+szerokosc) < dlugoscTekstu){
+        if ((poczatek+szerokosc)<dlugoscTekstu){
             koniec=poczatek+szerokosc;
         } else {
             koniec=dlugoscTekstu;
