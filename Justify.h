@@ -13,7 +13,10 @@ void cls(){
     system("CLS");
 }
 
-void pause(){
+void pause(string opis=""){
+    if (!(opis=="")){
+        cout<<opis<<endl;
+    }
     system("PAUSE");
 }
 
@@ -24,6 +27,7 @@ void pause(){
 string plainText(){
     ifstream file;
     string text="",text1="";
+    pause("Upewnij się, że plik tekstowy text.txt znajduje sie w folderze z aplikacją!");
     file.open("text.txt");
     if(file.is_open() && file.good())
     {
